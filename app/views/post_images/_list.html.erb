@@ -1,31 +1,4 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-* 
-
-<!-- ここから -->
-<% @post_images.each do |post_image| %>
+<% post_images.each do |post_image| %>
 <div>
   <%= link_to post_image_path(post_image.id) do %>
     <%= image_tag post_image.get_image %>
@@ -37,4 +10,5 @@ Things you may want to cover:
   <p><%= link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id) %></p>
 </div>
 <% end %>
-<!-- ここまで全て切り取り -->
+
+<%= paginate post_images %>
